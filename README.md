@@ -76,10 +76,10 @@ sudo apt-get -y install \
 ##### 允许apt使用https
 ```
 sudo apt-get -y install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
+	apt-transport-https \
+	ca-certificates \
+	curl \
+	software-properties-common
 ```
 ##### 添加Docker官方GPG key
 ```curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -```
@@ -99,10 +99,10 @@ add-apt-repository \
 ##### 添加nvidia-docker安装源
 ```
 sudo curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-  sudo apt-key add -
+	sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 sudo curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+	sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 ```
 ##### 更新apt源并安装nvidia-docker2
 ```
