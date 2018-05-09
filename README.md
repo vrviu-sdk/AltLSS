@@ -60,35 +60,35 @@
 ##### 如果服务器上已安装docker.io,请先卸载原有docker.io包
 ```
 sudo apt-get -y remove \
-	docker-engine \
-	docker.io
+  docker-engine \
+  docker.io
 ```
 ##### 安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)依赖
 ```
 sudo apt-get -y install \
-	aufs-tools \
-	subversion \
-	libcurl4-nss-dev \
-	cgroup-lite
+  aufs-tools \
+  subversion \
+  libcurl4-nss-dev \
+  cgroup-lite
 ```
 ##### 更新apt源
 ```sudo apt-get update```
 ##### 允许apt使用https
 ```
 sudo apt-get -y install \
-	apt-transport-https \
-	ca-certificates \
-	curl \
-	software-properties-common
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  software-properties-common
 ```
 ##### 添加Docker官方GPG key
 ```curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -```
 ##### 添加Docker官方stable源
 ```
 add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) \
+  stable"
 ```
 ##### 再次更新apt源并安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
 ```sudo apt-get update && apt-get -y install docker-ce```
@@ -99,10 +99,10 @@ add-apt-repository \
 ##### 添加nvidia-docker安装源
 ```
 sudo curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-	sudo apt-key add -
+  sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 sudo curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-	sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 ```
 ##### 更新apt源并安装nvidia-docker2
 ```
@@ -126,14 +126,14 @@ AccessKey=$AccessKey
 ##### 运行VRVIU-LSS Docker镜像启动服务
 ```
 docker run -d \
-	--net=host \
-	--privileged=true \
-	--runtime=nvidia \
-	--restart=always \
-	-v /usr/lib/nvidia-390:/usr/lib/nvidia-390:ro \
-	-v /etc/vrviu-altlss/auth.conf:/app/lss/conf/auth.conf \
-	-v /etc/localtime:/etc/localtime \
-	hub-docker.vrviu.com/vrviu-altlss:2.0
+  --net=host \
+  --privileged=true \
+  --runtime=nvidia \
+  --restart=always \
+  -v /usr/lib/nvidia-390:/usr/lib/nvidia-390:ro \
+  -v /etc/vrviu-altlss/auth.conf:/app/lss/conf/auth.conf \
+  -v /etc/localtime:/etc/localtime \
+  hub-docker.vrviu.com/vrviu-altlss:2.0
 ```
 
 ### 6. 推流并验证播放
