@@ -34,27 +34,45 @@
 ## 部署过程
 ### 1. 安装显卡驱动
 ##### 下载显卡驱动安装包至服务器
-```sudo wget https://cn.download.nvidia.com/tesla/390.12/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb```
+```
+sudo wget https://cn.download.nvidia.com/tesla/390.12/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
+```
 ##### 使用如下命令安装
-```sudo dpkg -i nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb```
+```
+sudo dpkg -i nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
+```
 ##### 添加apt公钥文件
-```sudo apt-key add /var/nvidia-diag-driver-local-repo-390.12/7fa2af80.pub```
+```
+sudo apt-key add /var/nvidia-diag-driver-local-repo-390.12/7fa2af80.pub
+```
 ##### 更新apt源并安装CUDA驱动
-```sudo apt-get update && apt-get -y install cuda-drivers```
+```
+sudo apt-get update && apt-get -y install cuda-drivers
+```
 ##### 安装完成后重启服务器
-```sudo reboot```
+```
+sudo reboot
+```
 ##### 重启后重新登录服务器执行<code>nvidia-smi</code>验证，预期输出如下
 ![](./Image/nvidia-smi.png)
 
 ### 2. 安装CUDA Toolkit
 ##### 下载CUDA Toolkit repo安装包至服务器
-```sudo wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb```
+```
+sudo wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+```
 ##### 使用如下命令安装
-```sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb```
+```
+sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+```
 ##### 更新apt源并安装CUDA Toolkit
-```sudo apt-get update && apt-get -y install cuda```
+```
+sudo apt-get update && apt-get -y install cuda
+```
 ##### 安装完成后重启服务器
-```sudo reboot```
+```
+sudo reboot
+```
 
 ### 3. 安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
 ##### 如果服务器上已安装docker.io,请先卸载原有docker.io包
@@ -72,7 +90,9 @@ sudo apt-get -y install \
   cgroup-lite
 ```
 ##### 更新apt源
-```sudo apt-get update```
+```
+sudo apt-get update
+```
 ##### 允许apt使用https
 ```
 sudo apt-get -y install \
@@ -82,7 +102,9 @@ sudo apt-get -y install \
   software-properties-common
 ```
 ##### 添加Docker官方GPG key
-```curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -```
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
 ##### 添加Docker官方stable源
 ```
 add-apt-repository \
@@ -91,7 +113,9 @@ add-apt-repository \
   stable"
 ```
 ##### 再次更新apt源并安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
-```sudo apt-get update && apt-get -y install docker-ce```
+```
+sudo apt-get update && apt-get -y install docker-ce
+```
 
 ### 4. 配置GPU容器运行环境
  **请注意**：如果你手动修改过<code>/etc/docker/daemon.json</code>, 该过程会覆盖你的修改。
@@ -109,14 +133,19 @@ sudo curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-dock
 sudo apt-get update && apt-get install -y nvidia-docker2
 ```
 ##### 重新加载Docker daemon配置
-```sudo pkill -SIGHUP dockerd```
+```
+sudo pkill -SIGHUP dockerd
+```
 
 ### 5. 拉取VRVIU-LSS Docker镜像并运行
 
 ##### 拉取VRVIU-LSS Docker镜像至服务器
-```docker pull hub-docker.vrviu.com/vrviu-altlss:2.0```
+```
+docker pull hub-docker.vrviu.com/vrviu-altlss:2.0
+```
 ##### 在服务器上创建鉴权文件<code>/etc/vrviu-altlss/auth.conf</code>，获取[配置信息](https://github.com/vrviu-sdk/VRVIU-LSS#%E8%B4%A6%E5%8F%B7%E9%89%B4%E6%9D%83%E5%8F%82%E6%95%B0%E8%A1%A8)并填入，鉴权文件格式如下：
-```cat /etc/vrviu-lss/auth.conf
+```
+cat /etc/vrviu-lss/auth.conf
 [lss]
 AppId=$AppId
 BizId=$BizId
@@ -139,9 +168,13 @@ docker run -d \
 ### 6. 推流并验证播放
 
 ##### 使用OBS软件或FFmpeg推流至下面地址，替换hostname为部署服务的主机名或IP
-```rtmp://hostname:19350/live/altlss```
+```
+rtmp://hostname:19350/live/altlss
+```
 ##### 转码后的视频使用[AltPlayer](https://github.com/vrviu-sdk/VRVIU-AltPlayer-Demo-Android)播放地址如下：
-```http://hostname:8081/live/altlss.flv```
+```
+http://hostname:8081/live/altlss.flv
+```
 
 
 ## 账号鉴权参数表
