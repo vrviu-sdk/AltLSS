@@ -28,7 +28,7 @@
 
 **软件环境**：[Docker 17.03.0-ce](https://docs.docker.com/release-notes/docker-ce/)或更高版本
 
-**硬件需求**：Nvidia Tesla P4显卡及或更高版本
+**硬件需求**：Nvidia Tesla P4显卡或更高版本
 
 
 ## 部署过程
