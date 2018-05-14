@@ -30,6 +30,12 @@
 
 **硬件需求**：Nvidia Tesla P4显卡或更高版本
 
+**Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.0
+
+
+##快速体验
+* 参照[部署过程](https://github.com/vrviu-sdk/AltLSS#%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B)中相关步骤，在部署Ubuntu 16.04 Server的服务器上安装Docker环境和显卡驱动，运行Docker镜像便可启动VRVIU-AltLSS服务。
+* 使用OBS软件或FFmpeg推流至VRVIU-AltLSS服务，VRVIU-AltLSS服务实时处理视频流的接流、转码和分发，客户端使用[AltPlayer](https://github.com/vrviu-sdk/VRVIU-AltPlayer-Demo-Android)播放体验。
 
 ## 部署过程
 ### 1. 安装显卡驱动
