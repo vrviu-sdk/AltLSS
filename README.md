@@ -28,7 +28,7 @@
 
 **软件环境**：[Docker 17.03.0-ce](https://docs.docker.com/release-notes/docker-ce/)或更高版本
 
-**硬件需求**：Nvidia Tesla P4显卡或更高版本
+**硬件需求**：NVIDIA TESLA P4显卡或更高版本
 
 **Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.0
 
