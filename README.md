@@ -84,7 +84,7 @@ sudo reboot
 
 ### 3. 添加NVIDIA cuDNN库
 
-#####下载环境需求中提供的NVIDIA cuDNN库并解压，将解压后文件夹cudnn/cuda/lib64下所有文件复制到宿主机目录/usr/local/cuda-9.1/lib64下，将cudnn/cuda/include下所有文件复制到宿主机目录/usr/local/cuda-9.1/include/下。
+##### 下载环境需求中提供的NVIDIA cuDNN库并解压，将解压后文件夹cudnn/cuda/lib64下所有文件复制到宿主机目录/usr/local/cuda-9.1/lib64下，将cudnn/cuda/include下所有文件复制到宿主机目录/usr/local/cuda-9.1/include/下。
 
 ### 4. 安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
 ##### 如果服务器上已安装docker.io,请先卸载原有docker.io包
