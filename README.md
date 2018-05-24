@@ -1,9 +1,9 @@
 # AltLSS（Ubuntu）
 [![](https://img.shields.io/badge/Powered%20by-vrviu.com-brightgreen.svg)](https://vrviu.com)
 ## 版本
-2.0
+2.1
 ## 功能说明
-提供高清晰度、高码率视频流的接流、转码和分发功能。
+提供高清晰度、高码率视频流的接流、转码和分发功能。使用了结合AI的编码算法，编码效果更好，同时会增加部分性能消耗。
 
 ## 产品特点
 
@@ -28,9 +28,11 @@
 
 **软件环境**：[Docker 17.03.0-ce](https://docs.docker.com/release-notes/docker-ce/)或更高版本
 
-**硬件需求**：Nvidia Tesla P4显卡或更高版本
+**硬件需求**：NVIDIA TESLA P4显卡或更高版本
 
-**Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.0
+**Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.1
+
+**NVIDIA cuDNN库**：[http://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cudnn.tar.gz](http://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cudnn.tar.gz)
 
 
 ## 快速体验
@@ -80,7 +82,11 @@ sudo apt-get update && apt-get -y install cuda
 sudo reboot
 ```
 
-### 3. 安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
+### 3. 添加NVIDIA cuDNN库
+
+#####下载环境需求中提供的NVIDIA cuDNN库并解压，将解压后文件夹cudnn/cuda/lib64下所有文件复制到宿主机目录/usr/local/cuda-9.1/lib64下，将cudnn/cuda/include下所有文件复制到宿主机目录/usr/local/cuda-9.1/include/下。
+
+### 4. 安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
 ##### 如果服务器上已安装docker.io,请先卸载原有docker.io包
 ```
 sudo apt-get -y remove \
@@ -123,7 +129,7 @@ add-apt-repository \
 sudo apt-get update && apt-get -y install docker-ce
 ```
 
-### 4. 配置GPU容器运行环境
+### 5. 配置GPU容器运行环境
  **请注意**：如果你手动修改过<code>/etc/docker/daemon.json</code>, 该过程会覆盖你的修改。
  
 ##### 添加nvidia-docker安装源
@@ -143,7 +149,7 @@ sudo apt-get update && apt-get install -y nvidia-docker2
 sudo pkill -SIGHUP dockerd
 ```
 
-### 5. 拉取VRVIU-LSS Docker镜像并运行
+### 6. 拉取VRVIU-LSS Docker镜像并运行
 
 ##### 拉取VRVIU-LSS Docker镜像至服务器
 ```
@@ -166,12 +172,13 @@ docker run -d \
   --runtime=nvidia \
   --restart=always \
   -v /usr/lib/nvidia-390:/usr/lib/nvidia-390:ro \
+  -v /usr/local/cuda-9.1:/usr/local/cuda-9.1 \
   -v /etc/vrviu-altlss/auth.conf:/app/lss/conf/auth.conf \
   -v /etc/localtime:/etc/localtime \
   hub-docker.vrviu.com/vrviu-altlss:2.0
 ```
 
-### 6. 推流并验证播放
+### 7. 推流并验证播放
 
 ##### 使用OBS软件或FFmpeg推流至下面地址，替换hostname为部署服务的主机名或IP
 ```
