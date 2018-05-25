@@ -84,7 +84,7 @@ sudo reboot
 
 ### 3. 添加NVIDIA cuDNN库
 
-##### 下载环境需求中提供的NVIDIA cuDNN库并解压，将解压后文件夹cudnn/cuda/lib64下所有文件复制到宿主机目录/usr/local/cuda-9.1/lib64下，将cudnn/cuda/include下所有文件复制到宿主机目录/usr/local/cuda-9.1/include/下。
+##### 下载环境需求中提供的NVIDIA cuDNN库并解压，将解压后文件夹<code>cudnn/cuda/lib64</code>下所有文件复制到宿主机目录<code>/usr/local/cuda-9.1/lib64</code>下，将<code>cudnn/cuda/include</code>下所有文件复制到宿主机目录<code>/usr/local/cuda-9.1/include</code>下。
 
 ### 4. 安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
 ##### 如果服务器上已安装docker.io,请先卸载原有docker.io包
@@ -153,7 +153,7 @@ sudo pkill -SIGHUP dockerd
 
 ##### 拉取VRVIU-LSS Docker镜像至服务器
 ```
-docker pull hub-docker.vrviu.com/vrviu-altlss:2.0
+docker pull hub-docker.vrviu.com/vrviu-altlss:2.1
 ```
 ##### 在服务器上创建鉴权文件<code>/etc/vrviu-altlss/auth.conf</code>，获取[配置信息](https://github.com/vrviu-sdk/VRVIU-LSS#%E8%B4%A6%E5%8F%B7%E9%89%B4%E6%9D%83%E5%8F%82%E6%95%B0%E8%A1%A8)并填入，鉴权文件格式如下：
 ```
@@ -175,7 +175,7 @@ docker run -d \
   -v /usr/local/cuda-9.1:/usr/local/cuda-9.1 \
   -v /etc/vrviu-altlss/auth.conf:/app/lss/conf/auth.conf \
   -v /etc/localtime:/etc/localtime \
-  hub-docker.vrviu.com/vrviu-altlss:2.0
+  hub-docker.vrviu.com/vrviu-altlss:2.1
 ```
 
 ### 7. 推流并验证播放
