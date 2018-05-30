@@ -32,9 +32,9 @@
 
 **Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.0
 
-**NVIDIA Tesla P4显卡驱动**：https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1\_amd64.deb
+**NVIDIA Tesla P4显卡驱动**：https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
 
-**CUDA Toolkit 9.1**：https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cuda-repo-ubuntu1604-9-1-local\_9.1.85-1\_amd64.deb
+**CUDA Toolkit 9.1**：https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb
 
 
 ## 快速体验
