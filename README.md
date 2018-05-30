@@ -32,6 +32,10 @@
 
 **Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.0
 
+**NVIDIA Tesla P4显卡驱动**：https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1\_amd64.deb
+
+**CUDA Toolkit 9.1**：https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cuda-repo-ubuntu1604-9-1-local\_9.1.85-1\_amd64.deb
+
 
 ## 快速体验
 * 参照[部署过程](https://github.com/vrviu-sdk/AltLSS#%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B)中相关步骤，在部署Ubuntu 16.04 Server的服务器上安装Docker环境和显卡驱动，运行Docker镜像便可启动VRVIU-AltLSS服务。
@@ -41,7 +45,8 @@
 ### 1. 安装显卡驱动
 ##### 下载显卡驱动安装包至服务器
 ```
-sudo wget https://cn.download.nvidia.com/tesla/390.12/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
+sudo wget https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
+# 也可用NVIDIA官方地址：https://cn.download.nvidia.com/tesla/390.12/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
 ```
 ##### 使用如下命令安装
 ```
@@ -65,15 +70,15 @@ sudo reboot
 ### 2. 安装CUDA Toolkit
 ##### 下载CUDA Toolkit repo安装包至服务器
 ```
-sudo wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+sudo wget https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb
 ```
 ##### 使用如下命令安装
 ```
-sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb
 ```
-##### 更新apt源并安装CUDA Toolkit
+##### 添加apt公钥文件
 ```
-sudo apt-get update && apt-get -y install cuda
+sudo apt-key add /var/cuda-repo-9-1-local/7fa2af80.pub
 ```
 ##### 安装完成后重启服务器
 ```
