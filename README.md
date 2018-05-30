@@ -32,7 +32,12 @@
 
 **Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.1
 
+**NVIDIA Tesla P4显卡驱动**：[https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb](https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb)
+
+**CUDA Toolkit 9.1**：[https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb](https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb)
+
 **NVIDIA cuDNN库**：[http://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cudnn.tar.gz](http://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cudnn.tar.gz)
+
 
 
 ## 快速体验
@@ -43,7 +48,8 @@
 ### 1. 安装显卡驱动
 ##### 下载显卡驱动安装包至服务器
 ```
-sudo wget https://cn.download.nvidia.com/tesla/390.12/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
+sudo wget https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
+# 也可用NVIDIA官方地址：https://cn.download.nvidia.com/tesla/390.12/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb
 ```
 ##### 使用如下命令安装
 ```
@@ -65,13 +71,13 @@ sudo reboot
 ![](./Image/nvidia-smi.png)
 
 ### 2. 安装CUDA Toolkit
-##### 下载CUDA Toolkit repo安装包至服务器
+##### 下载CUDA Toolkit安装包至服务器
 ```
-sudo wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+sudo wget https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb
 ```
 ##### 使用如下命令安装
 ```
-sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64.deb
 ```
 ##### 更新apt源并安装CUDA Toolkit
 ```
@@ -85,6 +91,12 @@ sudo reboot
 ### 3. 添加NVIDIA cuDNN库
 
 ##### 下载环境需求中提供的NVIDIA cuDNN库并解压，将解压后文件夹<code>cudnn/cuda/lib64</code>下所有文件复制到宿主机目录<code>/usr/local/cuda-9.1/lib64</code>下，将<code>cudnn/cuda/include</code>下所有文件复制到宿主机目录<code>/usr/local/cuda-9.1/include</code>下。
+```
+wget https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/cudnn.tar.gz
+tar xvf cudnn.tar.gz 
+cp -rf cudnn/cuda/lib64/* /usr/local/cuda-9.1/lib64
+cp -rf cudnn/cuda/include/* /usr/local/cuda-9.1/include
+```
 
 ### 4. 安装[docker-ce](https://docs.docker.com/release-notes/docker-ce/)
 ##### 如果服务器上已安装docker.io,请先卸载原有docker.io包
