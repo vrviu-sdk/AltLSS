@@ -1,7 +1,8 @@
 # AltLSS（Ubuntu）
 [![](https://img.shields.io/badge/Powered%20by-vrviu.com-brightgreen.svg)](https://vrviu.com)
 ## 版本
-2.0
+20180413 V2.0 发布；
+
 ## 功能说明
 提供高清晰度、高码率视频流的接流、转码和分发功能。
 
@@ -15,7 +16,7 @@
 
 * **播放模式**：直播
 
-*  **编码方式**：硬编
+* **编码方式**：硬编
 
 * **解码方式**：硬解
 
@@ -197,7 +198,6 @@ http://hostname:8081/live/altlss.flv
 |BizId|分配给用户的ID，可通过 [www.vrviu.com](https://www.vrviu.com/) 填写表单或者联系客服申请|必填|String|
 |AccessKey|分配给用户的ID，可通过 [www.vrviu.com](https://www.vrviu.com/) 填写表单或者联系客服申请|必填|String
 
-## 商务合作
-电话：0755-86960615
-
-邮箱：business@vrviu.com
+## 联系我们
+ 如果有技术问题咨询，请加入官方QQ群：136562408；   
+ 商务合作请电话：0755-86960615；邮箱：business@vrviu.com；或者至[官网](http://www.vrviu.com)"联系我们" 。 
