@@ -1,7 +1,18 @@
 # AltLSS（Ubuntu）
 [![](https://img.shields.io/badge/Powered%20by-vrviu.com-brightgreen.svg)](https://vrviu.com)
 ## 版本
-20180413 V2.0 发布；
+20180803 V2.2 发布
+
+20180504 V2.1 发布
+
+20180413 V2.0 发布
+
+## 最近更新
+1. 降低延迟。
+2. 支持高码率流输入，支持高达60Mbps码率的输入。
+3. 支持一入多出，输出不同分辨率的直播流。
+4. 针对吃鸡视频进行部分转码效果优化。
+5. 内部其他优化。
 
 ## 功能说明
 提供高清晰度、高码率视频流的接流、转码和分发功能。
@@ -31,7 +42,7 @@
 
 **硬件需求**：NVIDIA TESLA P4显卡或更高版本
 
-**Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.0
+**Docker镜像**：hub-docker.vrviu.com/vrviu-altlss:2.2
 
 **NVIDIA Tesla P4显卡驱动**：[https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb](https://viutest.oss-cn-shenzhen.aliyuncs.com/backend/nvidia-diag-driver-local-repo-ubuntu1604-390.12_1.0-1_amd64.deb)
 
@@ -153,7 +164,7 @@ sudo pkill -SIGHUP dockerd
 
 ##### 拉取VRVIU-LSS Docker镜像至服务器
 ```
-docker pull hub-docker.vrviu.com/vrviu-altlss:2.0
+docker pull hub-docker.vrviu.com/vrviu-altlss:2.2
 ```
 ##### 在服务器上创建鉴权文件<code>/etc/vrviu-altlss/auth.conf</code>，获取[配置信息](https://github.com/vrviu-sdk/VRVIU-LSS#%E8%B4%A6%E5%8F%B7%E9%89%B4%E6%9D%83%E5%8F%82%E6%95%B0%E8%A1%A8)并填入，鉴权文件格式如下：
 ```
@@ -174,7 +185,7 @@ docker run -d \
   -v /usr/lib/nvidia-390:/usr/lib/nvidia-390:ro \
   -v /etc/vrviu-altlss/auth.conf:/app/lss/conf/auth.conf \
   -v /etc/localtime:/etc/localtime \
-  hub-docker.vrviu.com/vrviu-altlss:2.0
+  hub-docker.vrviu.com/vrviu-altlss:2.2
 ```
 
 ### 6. 推流并验证播放
