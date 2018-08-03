@@ -183,6 +183,7 @@ docker run -d \
   --runtime=nvidia \
   --restart=always \
   -v /usr/lib/nvidia-390:/usr/lib/nvidia-390:ro \
+  -v /usr/local/cuda-9.1:/usr/local/cuda-9.1 \
   -v /etc/vrviu-altlss/auth.conf:/app/lss/conf/auth.conf \
   -v /etc/localtime:/etc/localtime \
   hub-docker.vrviu.com/vrviu-altlss:2.2
